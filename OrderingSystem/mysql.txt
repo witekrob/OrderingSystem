@@ -1,0 +1,6 @@
+select country.name from xf.country right join  city on(country.countryId=city.countryId)
+where (select sum(city.population)from city where country.countryId=city.countryId)>400 group by country.name;
+
+
+
+SELECT country.name FROM xf.country where country.countryId NOT IN ( Select city.countryId from city right join building on (building.cityId=city.cityId));
